@@ -1,0 +1,17 @@
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Produtos {
+  id            Int       @id @default(autoincrement())
+  nome          String    
+  categoria     String?    
+  quantidade    Int       
+}
