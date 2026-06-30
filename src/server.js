@@ -44,6 +44,14 @@ app.put("/produtos/:id", async (req, res) =>{
     }
 })
 
+app.delete("/produtos/:id", async (req, res) =>{
+    const {id} = req.params;
+    await prisma.produtos.delete({
+        where: {id: Number (id)}
+    })
+     res.status(204).send()
+})
+
 app.listen(PORT, () => {
     console.log("Server Rodando na porta " + PORT)
 })
